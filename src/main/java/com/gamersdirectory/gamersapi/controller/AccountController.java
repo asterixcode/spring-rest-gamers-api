@@ -39,9 +39,12 @@ public class AccountController {
             @ApiResponse(description = "Account found.",
                     responseCode = "200",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = Account.class))),
-            @ApiResponse(description = "Account not found", responseCode = "409", content = @Content)
+            @ApiResponse(description = "Account not found.", responseCode = "409", content = @Content)
     })
     public Account getById(@PathVariable Long id) {
         return accountService.findById(id);
     }
+
+
+
 }
