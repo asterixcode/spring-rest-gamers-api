@@ -1,11 +1,13 @@
-package com.games.directory.gamersapi.api.controller;
+package com.gamersdirectory.gamersapi.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/test")
+@Tag(name="Index")
 public class IndexController {
 
     @GetMapping

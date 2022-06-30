@@ -1,4 +1,4 @@
-package com.games.directory.gamersapi.domain.model;
+package com.gamersdirectory.gamersapi.model;
 
 public enum Level {
     NOOB,

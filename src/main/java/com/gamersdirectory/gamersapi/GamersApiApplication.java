@@ -1,4 +1,4 @@
-package com.games.directory.gamersapi;
+package com.gamersdirectory.gamersapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

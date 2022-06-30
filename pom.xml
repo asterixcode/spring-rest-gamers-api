@@ -8,7 +8,7 @@
         <version>2.7.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.games.directory</groupId>
+    <groupId>com.gamesdirectory</groupId>
     <artifactId>gamers-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gamers-api</name>
@@ -51,6 +51,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.9</version>
+        </dependency>
 
     </dependencies>
 

@@ -2,4 +2,4 @@
 
 #### Domain model mapped
 
-![](gamers-api-domain-relationship.png)
+![](src/main/resources/img/gamers-api-domain-relationship.png)
