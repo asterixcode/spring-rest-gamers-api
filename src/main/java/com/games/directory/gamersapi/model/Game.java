@@ -1,4 +1,4 @@
-package com.games.directory.gamersapi.domain;
+package com.games.directory.gamersapi.domain.model;
 
 import lombok.Data;
 

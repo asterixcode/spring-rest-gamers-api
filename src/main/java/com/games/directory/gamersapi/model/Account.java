@@ -1,6 +1,6 @@
-package com.games.directory.gamersapi.domain;
+package com.games.directory.gamersapi.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "User")
 public class User {
 
     @Id
@@ -26,5 +27,7 @@ public class User {
     @JoinTable(name = "user_interest",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "interest_id"))
+    @ToString.Exclude
     private List<Interest> interests = new ArrayList<>();
+
 }
