@@ -1,7 +1,7 @@
-package com.games.directory.gamersapi.service;
+package com.gamersdirectory.gamersapi.service;
 
-import com.games.directory.gamersapi.model.Account;
-import com.games.directory.gamersapi.repository.AccountRepository;
+import com.gamersdirectory.gamersapi.model.Account;
+import com.gamersdirectory.gamersapi.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +10,9 @@ import javax.persistence.EntityNotFoundException;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    private static final String ACCOUNT_ID_NOT_FOUND = "Account Id %d not found";
-    private static final String NICKNAME_NOTFOUND = "Nickname %d not found";
-    public AccountRepository accountRepository;
+    private static final String ACCOUNT_ID_NOT_FOUND = "Account Id %s not found";
+    private static final String NICKNAME_NOTFOUND = "Nickname %s not found";
+    private final AccountRepository accountRepository;
 
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository) {

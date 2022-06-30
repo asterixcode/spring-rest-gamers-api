@@ -1,12 +1,10 @@
-package com.games.directory.gamersapi.service;
+package com.gamersdirectory.gamersapi.service;
 
-import com.games.directory.gamersapi.model.Account;
+import com.gamersdirectory.gamersapi.model.Account;
 
 public interface AccountService {
     Account save(Account account);
-
     Account findById(Long accountId);
-
     void findByNickname(String nickname);
 
 }
