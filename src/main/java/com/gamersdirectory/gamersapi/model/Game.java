@@ -3,10 +3,9 @@ package com.gamersdirectory.gamersapi.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +19,8 @@ public class Game {
     private Long id;
 
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
+    private List<Interest> interestList = new ArrayList<>();
 }

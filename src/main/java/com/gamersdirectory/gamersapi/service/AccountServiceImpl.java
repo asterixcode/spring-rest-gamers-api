@@ -2,13 +2,13 @@ package com.gamersdirectory.gamersapi.service;
 
 import com.gamersdirectory.gamersapi.exception.ApiRequestException;
 import com.gamersdirectory.gamersapi.model.Account;
+import com.gamersdirectory.gamersapi.model.Location;
 import com.gamersdirectory.gamersapi.repository.AccountRepository;
 import com.gamersdirectory.gamersapi.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -27,9 +27,9 @@ public class AccountServiceImpl implements AccountService {
     public Account save(Account account) {
         String locationName = account.getLocation().getName();
 
-        Optional<Account> location = locationRepository.findLocationByName(locationName);
+        Location location = locationRepository.findLocationsByName(locationName);
 
-        if (location.isEmpty()) {
+        if (location == null) {
             throw new ApiRequestException(
                     String.format("Location [ %s ] does not exist.", locationName)
             );

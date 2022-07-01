@@ -17,7 +17,7 @@ public class Interest {
     @JsonIgnore
     private Long id;
 
-    @ManyToOne // many interest have the same one game
+    @ManyToOne(cascade = CascadeType.ALL) // many interest have the same one game
     @JoinColumn(name = "game_id", nullable = false)
     private Game game;
 
