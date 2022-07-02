@@ -1,6 +1,8 @@
 package com.gamersdirectory.gamersapi.model;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -25,11 +27,13 @@ public class Account {
 
     private String nickname;
 
-    @ManyToOne // many accounts have one location
-    @JoinColumn(name = "location_name")
+    @ManyToOne
+    @Cascade(CascadeType.ALL)// many accounts have one location
+    @JoinColumn(name = "location_id")
     private Location location;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany()
+    @Cascade({ CascadeType.SAVE_UPDATE, CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "account_interest",
             joinColumns = @JoinColumn(name = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "interest_id"))
