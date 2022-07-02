@@ -20,7 +20,7 @@ public class Game {
 
     private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
-    private List<Interest> interestList = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Interest> interestList = new ArrayList<>();
 }

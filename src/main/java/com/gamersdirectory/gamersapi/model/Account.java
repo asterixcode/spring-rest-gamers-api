@@ -28,8 +28,8 @@ public class Account {
     private String nickname;
 
     @ManyToOne
-    @Cascade(CascadeType.SAVE_UPDATE)// many accounts have one location
-    @JoinColumn(name = "location_name")
+    @Cascade(CascadeType.ALL)// many accounts have one location
+    @JoinColumn(name = "location_id")
     private Location location;
 
     @ManyToMany()

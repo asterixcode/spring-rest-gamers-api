@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Long> {
 
-    Location findLocationsByName(String name);
+    Location findLocationByName(String name);
 }
