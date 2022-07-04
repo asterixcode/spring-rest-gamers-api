@@ -1,13 +1,14 @@
 package com.gamersdirectory.gamersapi.service;
 
-import com.gamersdirectory.gamersapi.model.Game;
-import org.springframework.stereotype.Service;
+import com.gamersdirectory.gamersapi.entity.Game;
 
 import java.util.List;
 
-@Service
 public interface GameService {
 
-    List<Game> listAll();
+    Game save(Game game);
 
+    List<Game> listFive();
+
+    List<Game> listAll();
 }
