@@ -1,14 +1,14 @@
 package com.gamersdirectory.gamersapi.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class InterestDTO {
 
-    String game;
-    String level;
+    private String game;
+    private String level;
+
 }

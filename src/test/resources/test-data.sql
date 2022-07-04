@@ -1,0 +1,1 @@
+insert into account (id, name, nickname, location_id) values (1, 'test-name-sql', 'test-nickname', 2);

@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -55,13 +52,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     private Location findLocationOrFail(String locationName) {
-        Location location = locationRepository.findLocationByName(locationName);
-        if (location == null) {
-            throw new ApiRequestException(
-                    String.format("Location [ %s ] does not exist.", locationName)
-            );
-        }
-        return location;
+        return locationRepository.findLocationByName(locationName)
+                .orElseThrow(() -> new ApiRequestException(
+                        String.format("Location [ %s ] does not exist.", locationName)));
     }
 
     private Map<Game, Level> mapGamesAndLevelsOrFail(AccountForm accountForm) {
@@ -89,7 +82,6 @@ public class AccountServiceImpl implements AccountService {
 
     private List<Interest> fromMapToList(Map<Game, Level> map) {
         List<Interest> interestList = new ArrayList<>();
-        Map<Game, Level> gamesList = new HashMap<>();
 
         for (Map.Entry<Game, Level> maps : map.entrySet()) {
             Interest interest = new Interest();
@@ -103,7 +95,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountDTO findById(Long accountId) {
-
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new EntityNotFoundException(
                         String.format(ACCOUNT_ID_NOT_FOUND, accountId)

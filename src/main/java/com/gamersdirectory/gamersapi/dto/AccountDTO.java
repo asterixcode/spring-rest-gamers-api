@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -29,13 +30,18 @@ public class AccountDTO {
     }
 
     private List<InterestDTO> mapInterests(Account account) {
+
+        if (account.getInterests().isEmpty()) {
+            return Collections.emptyList();
+        }
+
         List<InterestDTO> list = new ArrayList<>();
 
-        List<Interest> interests = account.getInterests()
+        List<Interest> interestList = account.getInterests()
                 .stream()
                 .toList();
 
-        for (Interest interest : interests) {
+        for (Interest interest : interestList) {
             InterestDTO interestDTO = new InterestDTO();
             interestDTO.setGame(interest.getGame().getName());
             interestDTO.setLevel(interest.getLevel().getName());
