@@ -24,4 +24,18 @@ public class ApiExceptionHandler {
         // 2. return response entity
         return new ResponseEntity<>(apiException, badRequest);
     }
+
+    @ExceptionHandler(value = {ApiConflictException.class})
+    public ResponseEntity<Object> handleApiConflictException(ApiConflictException e) {
+        // 1. create payload containing exception details
+        HttpStatus conflict = HttpStatus.CONFLICT;
+
+        ApiException apiException = new ApiException(
+                e.getMessage(),
+                conflict,
+                ZonedDateTime.now(ZoneId.of("Z"))
+        );
+        // 2. return response entity
+        return new ResponseEntity<>(apiException, conflict);
+    }
 }

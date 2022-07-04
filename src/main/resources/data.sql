@@ -1,3 +1,7 @@
+insert into level (name) values ('NOOB');
+insert into level (name) values ('PRO');
+insert into level (name) values ('INVINCIBLE');
+
 insert into game (name) values ('fortnite');
 insert into game (name) values ('call of duty');
 insert into game (name) values ('dota');
