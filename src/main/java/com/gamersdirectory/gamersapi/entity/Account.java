@@ -10,8 +10,9 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@RequiredArgsConstructor
 public class Account {
 
     @Id

@@ -8,7 +8,8 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Interest {
 

@@ -10,6 +10,8 @@ import java.util.Objects;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Location {
 
@@ -22,13 +24,6 @@ public class Location {
 
     @OneToMany(mappedBy = "location", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Account> accountList = new ArrayList<>();
-
-    public Location(String name) {
-        this.name = name;
-    }
-
-    public Location() {
-    }
 
     @Override
     public boolean equals(Object o) {
