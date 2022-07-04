@@ -1,6 +1,6 @@
 package com.gamersdirectory.gamersapi.repository;
 
-import com.gamersdirectory.gamersapi.model.Game;
+import com.gamersdirectory.gamersapi.entity.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,8 @@
 package com.gamersdirectory.gamersapi.controller;
 
-import com.gamersdirectory.gamersapi.model.Account;
+import com.gamersdirectory.gamersapi.dto.AccountDTO;
+import com.gamersdirectory.gamersapi.validation.AccountForm;
+import com.gamersdirectory.gamersapi.entity.Account;
 import com.gamersdirectory.gamersapi.service.AccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -8,8 +10,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping("api/v1/account")
@@ -24,14 +30,18 @@ public class AccountController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create new account", responses = {
             @ApiResponse(description = "Account created successfully.",
                     responseCode = "201",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = Account.class)))
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = AccountDTO.class)))
     })
-    public Account create(@RequestBody Account account) {
-        return accountService.save(account);
+    public ResponseEntity<AccountDTO> signup(@RequestBody @Valid AccountForm accountForm, UriComponentsBuilder uriBuilder) {
+
+        AccountDTO accountDTO = accountService.save(accountForm);
+
+        URI uri = uriBuilder.path("api/v1/account/{id}").buildAndExpand(accountDTO.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(accountDTO);
     }
 
     @GetMapping("/{id}")
@@ -41,7 +51,7 @@ public class AccountController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = Account.class))),
             @ApiResponse(description = "Account not found.", responseCode = "409", content = @Content)
     })
-    public Account getById(@PathVariable Long id) {
+    public AccountDTO getById(@PathVariable Long id) {
         return accountService.findById(id);
     }
 

@@ -1,4 +1,4 @@
-package com.gamersdirectory.gamersapi.model;
+package com.gamersdirectory.gamersapi.entity;
 
 import lombok.*;
 import org.hibernate.annotations.Cascade;
@@ -27,8 +27,8 @@ public class Account {
 
     private String nickname;
 
-    @ManyToOne
-    @Cascade(CascadeType.ALL)// many accounts have one location
+    @ManyToOne// many accounts have one location
+    @Cascade({ CascadeType.SAVE_UPDATE, CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "location_id")
     private Location location;
 
