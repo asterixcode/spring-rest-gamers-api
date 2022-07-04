@@ -5,7 +5,6 @@
 
 A directory of gamers and their favorite games and respective level.
 
----
 
 ### Domain model design
 
@@ -41,3 +40,17 @@ b) The app has an in-memory database configured using H2 database and its own UI
 2. User Name: sa
 3. Password:
 4. Click Connect
+
+## ⚙️ Running the test
+
+It is possible to run the test in two ways.
+
+1. Run the tests in the Terminal/Console with the command:
+
+```mvn clean test```
+
+2. a) Navigate to src/test/java
+   
+   b) Right click and select " Run 'All Tests' "
+
+
