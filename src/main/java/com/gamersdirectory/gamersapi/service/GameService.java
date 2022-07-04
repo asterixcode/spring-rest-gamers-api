@@ -1,6 +1,6 @@
 package com.gamersdirectory.gamersapi.service;
 
-import com.gamersdirectory.gamersapi.model.Game;
+import com.gamersdirectory.gamersapi.entity.Game;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
